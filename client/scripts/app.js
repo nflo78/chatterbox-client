@@ -27,11 +27,14 @@ var App = {
     Parse.readAll((data) => {
       // examine the response from the server request:
       console.log(data);
-
+      Messages._data = data;
+      MessagesView.render();
+      callback();
       // TODO: Use the data to update Messages and Rooms
       // and re-render the corresponding views.
     });
   },
+//var callback = function(){}
 
   startSpinner: function() {
     App.$spinner.show();
