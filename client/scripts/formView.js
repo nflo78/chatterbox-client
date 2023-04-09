@@ -11,13 +11,23 @@ var FormView = {
   },
 
   handleSubmit: function(event) {
-    // Stop the browser from submitting the form
-     event.preventDefault();
-
+    // Stop the browser from submitting the form'
+   let $room = $('#roomSelect');
+   $room.val('Boiler Room');
+    event.preventDefault();
+    App.startSpinner()
+    let msg = {
+      'username': window.location.search.slice(10, window.location.search.length),
+      'text': $('#message').val(),
+      'roomname': $('#roomSelect').val() // we still need to set rooms up right now
+    }
+    console.log(msg)
+    Parse.create(msg)
+    // message, cb, errorcb
+    // App.fetch()
     // TODO: Currently, this is all handleSubmit does.
     // Make this function actually send a message to the Parse API.
 
-    console.log('click!');
   },
 
   setStatus: function(active) {

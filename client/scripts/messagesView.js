@@ -14,11 +14,12 @@ var MessagesView = {
   render: function() {
     // TODO: Render _all_ the messages.
     // for message in messages.js
+    this.$chats.empty()
     for (let i = 0; i < Messages._data.length; i++) {
       let $current = this.renderMessage(Messages._data[i]);
       this.$chats.append($current);
     }
-    // rendermessage
+    console.log(this.$chats)
     // append to $chats
   },
 
@@ -28,8 +29,6 @@ var MessagesView = {
       'username':message.username,
       'text':message.text
     }))
-    console.log(message.username)
-    console.log(message.text)
     // $msg.click(MessagesView.handleClick)
     return $msg
   },

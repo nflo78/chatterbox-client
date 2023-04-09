@@ -7,16 +7,28 @@ var RoomsView = {
   $select: $('#rooms select'),
 
   initialize: function() {
-    // TODO: Perform any work which needs to be done
-    // when this view loads.
+    this.$select.click(this.render);
+    // function initializeRooms() {
+    // for (let i = 0; i< Messages.getRooms().length, i++){
+    // let $room = $(this.render(Messages.getRooms()[i]))
+    // RoomsView.$button.append($room);
+    // }
+    // }
   },
 
-  render: function() {
-    // TODO: Render out the list of rooms.
+  render: function(){
+    console.log($('#rooms select'))
+    $('#rooms select').empty()
+    $('#rooms select').append($('<option>All</option>'))
+    let roomList = Messages.getRooms();
+    for (let i = 0; i< roomList.length; i++){
+    let $room = $(Rooms.roomTemplate({'roomname':roomList[i]}))
+    $('#rooms select').append($room);
+    }
   },
 
   renderRoom: function(roomname) {
-    // TODO: Render out a single room.
+
   },
 
   handleChange: function(event) {

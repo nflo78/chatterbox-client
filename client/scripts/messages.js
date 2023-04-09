@@ -6,8 +6,10 @@ var Messages = {
 
   // TODO: Define how you want to store your messages.
   _data: null,
-
+  getRooms: function(){
+    let rooms = _.pluck(this._data,'roomname')
+    return _.uniq(rooms);
+  }
   // TODO: Define methods which allow you to retrieve from,
   // add to, and generally interact with the messages.
-
 };

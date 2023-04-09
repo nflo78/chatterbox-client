@@ -10,12 +10,14 @@ var Parse = {
     // TODO: send a request to the Parse API to save the message
     $.ajax({
       // This is the url you should use to communicate with the API server.
-      url: 'https://app-hrsei-api.herokuapp.com/api/chatterbox/messages/CAMPUS',
+      //url: 'https://app-hrsei-api.herokuapp.com/api/chatterbox/messages/CAMPUS',
+      url: Parse.server,
       type: 'POST',
       data: JSON.stringify(message),
       contentType: 'application/json',
       success: function (data) {
         console.log('chatterbox: Message sent');
+        App.fetch(App.stopSpinner)
       },
       error: function (data) {
         // See: https://developer.mozilla.org/en-US/docs/Web/API/console.error
